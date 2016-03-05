@@ -55,7 +55,7 @@
 
 
                 android:id="@+id/ozel_ucak_kiralama"
-                android:src="@drawable/ozelUcak_Kiralama"
+                android:src="@drawable/ozel_ucak_kiralama"
                 />
 
             <ImageView
@@ -65,7 +65,7 @@
                 android:layout_toEndOf="@+id/ozel_ucak_kiralama"
 
                 android:id="@+id/ambulans_ucak"
-                android:src="@drawable/ambulansUcak_Kiralama"
+                android:src="@drawable/ambulans_ucak_kiralama"
                 />
 
             <ImageView
@@ -74,7 +74,7 @@
 
                 android:layout_toEndOf="@+id/ambulans_ucak"
 
-                android:src="@drawable/havaKargo"
+                android:src="@drawable/hava_kargo"
                 android:id="@+id/hava_kargo"
                 />
 
@@ -85,7 +85,7 @@
 
                 android:layout_below="@+id/ambulans_ucak"
 
-                android:src="@drawable/ucakBileti_satinAlma"
+                android:src="@drawable/ucak_bileti_bt"
                 android:id="@+id/ucak_bileti"
                 />
 
@@ -97,7 +97,7 @@
                 android:layout_toEndOf="@+id/ucak_bileti"
                 android:layout_below="@+id/ambulans_ucak"
 
-                android:src="@drawable/Turizm"
+                android:src="@drawable/turizm_bt"
                 android:id="@+id/turizm"
                 />
 
@@ -109,7 +109,7 @@
                 android:layout_toEndOf="@+id/turizm"
                 android:layout_below="@+id/hava_kargo"
 
-                android:src="@drawable/Iletisim"
+                android:src="@drawable/iletisim_bt"
                 android:id="@+id/iletisim"
 
 

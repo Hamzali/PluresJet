@@ -21,7 +21,7 @@ public class MainActivity extends AppCompatActivity{
         Toolbar toolbar = (Toolbar) findViewById(R.id.main_toolbar);
         setSupportActionBar(toolbar);
 
-        ImageView pluresIcon = (ImageView) findViewById(R.id.plures_icon);
+        ImageView pluresIcon = (ImageView) findViewById(R.id.ucak_bileti);
 
 
         pluresIcon.setOnClickListener(new View.OnClickListener() {
