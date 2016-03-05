@@ -7,7 +7,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:fitsSystemWindows="true"
-    android:background="@drawable/bg_image"
+    android:background="@drawable/main_bg"
 
     tools:context="com.example.hamzali.pluresjet.MainActivity">
 
@@ -39,58 +39,90 @@
         android:orientation="vertical"
         >
 
-        <ImageView
-            android:layout_width="200dp"
-            android:layout_height="200dp"
-            android:backgroundTint="@color/primaryTextColor"
-
-            android:src="@drawable/plures_icon"
-            android:layout_gravity="center_horizontal"
-            android:layout_marginTop="100dp"
-            android:layout_marginBottom="80dp"
-
-            android:clickable="true"
-
-            android:id="@+id/plures_icon"
-            />
-
-        <Button
+        <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_margin="10dp"
-            android:text="Flight Request"
+            android:layout_gravity="center_horizontal|center_vertical"
+            android:gravity="center_horizontal|center_vertical"
+            android:layout_marginTop="200dp"
+            >
 
-            android:textSize="15sp"
-            android:textColor="#ffffff"
-            android:background="@drawable/rounded_bt"
-
-            android:onClick="requestForm"
-
-            android:id="@+id/request_button"
-            />
+            <ImageView
+                android:layout_width="100dp"
+                android:layout_height="100dp"
 
 
+
+
+                android:id="@+id/ozel_ucak_kiralama"
+                android:src="@drawable/ozelUcak_Kiralama"
+                />
+
+            <ImageView
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+
+                android:layout_toEndOf="@+id/ozel_ucak_kiralama"
+
+                android:id="@+id/ambulans_ucak"
+                android:src="@drawable/ambulansUcak_Kiralama"
+                />
+
+            <ImageView
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+
+                android:layout_toEndOf="@+id/ambulans_ucak"
+
+                android:src="@drawable/havaKargo"
+                android:id="@+id/hava_kargo"
+                />
+
+
+            <ImageView
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+
+                android:layout_below="@+id/ambulans_ucak"
+
+                android:src="@drawable/ucakBileti_satinAlma"
+                android:id="@+id/ucak_bileti"
+                />
+
+
+            <ImageView
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+
+                android:layout_toEndOf="@+id/ucak_bileti"
+                android:layout_below="@+id/ambulans_ucak"
+
+                android:src="@drawable/Turizm"
+                android:id="@+id/turizm"
+                />
+
+
+            <ImageView
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+
+                android:layout_toEndOf="@+id/turizm"
+                android:layout_below="@+id/hava_kargo"
+
+                android:src="@drawable/Iletisim"
+                android:id="@+id/iletisim"
+
+
+                />
+
+
+
+
+        </RelativeLayout>
+
+    <include layout="@layout/ara_cikis_layout"/>
 
     </LinearLayout>
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="bottom|left"
-        android:layout_marginBottom="15dp"
-        android:layout_marginLeft="65dp"
-
-        android:text="Call Us!"
-        android:textSize="25sp"
-        />
-
-    <android.support.design.widget.FloatingActionButton
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_margin="5dp"
-        android:layout_gravity="bottom|left"
-        android:tint="#5ec6f2"
-        android:id="@+id/fab"
-        />
 
 </android.support.design.widget.CoordinatorLayout>
