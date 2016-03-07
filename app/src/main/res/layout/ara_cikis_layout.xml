@@ -19,6 +19,9 @@
 
             android:src="@drawable/ara_bt"
 
+            android:clickable="true"
+            android:onClick="callIntent"
+
             android:id="@+id/ara"
             />
 
@@ -29,6 +32,8 @@
 
             android:layout_marginLeft="50dp"
 
+            android:clickable="true"
+            android:onClick="exit"
 
             android:src="@drawable/cikis_bt"
             android:id="@+id/cikis"

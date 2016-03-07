@@ -7,7 +7,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:fitsSystemWindows="true"
-    android:background="@drawable/bg_image"
+    android:background="@drawable/main_bg"
 
     tools:context="com.example.hamzali.pluresjet.FormActivity">
 
@@ -31,166 +31,97 @@
      <include layout="@layout/content_main" />
     -->
 
-    <LinearLayout
-        android:gravity="center"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:orientation="vertical"
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
 
-        android:layout_marginLeft="20dp"
-        android:layout_marginRight="20dp"
-        android:layout_marginTop="80dp"
-        android:layout_marginBottom="80dp"
-
-        android:background="@drawable/rounded_bg">
-
-        <TextView
-            style="@style/TextStyle"
-
-            android:layout_marginTop="10dp"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-
-            android:text="Name"
-            />
-
-        <EditText
-            style="@style/InputStyle"
-            android:background="@drawable/input_style"
-
-            android:inputType="textPersonName"
-
-            android:id="@+id/name"
-            />
-
-        <TextView
-            style="@style/TextStyle"
-
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-
-            android:text="Email"
-            />
-
-        <EditText
-            style="@style/InputStyle"
-            android:background="@drawable/input_style"
-
-            android:inputType="textEmailAddress"
-
-            android:id="@+id/email"
-            />
+        >
 
 
-        <TextView
-            style="@style/TextStyle"
 
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-
-            android:text="Phone"
-            />
 
         <LinearLayout
-            android:layout_width="match_parent"
+            android:gravity="center"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:orientation="horizontal"
+            android:orientation="vertical"
+
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:layout_marginTop="70dp"
+
+            android:background="@drawable/rounded_bg"
+            android:id="@+id/icerik"
             >
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="150dp"
 
-
-            <Spinner
-                android:layout_width="65dp"
-                android:layout_height="30dp"
-                android:layout_marginLeft="20dp"
-
-                android:entries="@array/country_codes"
-                android:prompt="@string/country_prompt"
-                android:id="@+id/country_code_spinner"
+                android:src="@drawable/icerik_bg"
                 />
 
-            <EditText
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+
+                android:textAlignment="center"
+
                 style="@style/InputStyle"
-                android:background="@drawable/input_style"
-                android:layout_marginLeft="0dp"
-                android:maxLength="20"
-                android:inputType="phone"
-
-                android:id="@+id/phone"
+                android:text="info"
+                android:id="@+id/icerik_text"
                 />
-
-
-
-
 
         </LinearLayout>
 
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="40dp"
 
-        <TextView
-            style="@style/TextStyle"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
 
-            android:layout_width="match_parent"
+            android:src="@drawable/ozel_ucak_banner"
+            android:layout_below="@+id/icerik"
+            android:id="@+id/banner"
+            />
+
+
+        <include layout="@layout/form_layout"
             android:layout_height="wrap_content"
-            android:layout_marginTop="10dp"
-            android:text="Flight Request"
-            />
+            android:layout_width="wrap_content"
 
-        <EditText
-            style="@style/InputStyle"
-            android:background="@drawable/input_style"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
 
-            android:inputType="textCapSentences|textMultiLine"
-            android:maxLength="1800"
-            android:maxLines="6"
-
-            android:layout_marginBottom="30dp"
-            android:gravity="top|center"
-            android:layout_height="100dp"
-            android:padding="2dp"
-
-
-            android:id="@+id/flight_info"
-            />
+            android:layout_below="@+id/banner"
+            android:id="@+id/ff" />
 
         <Button
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-
-            android:text="Send Request"
-
-            android:textSize="10sp"
-            android:textColor="#ffffff"
-            android:background="@drawable/rounded_bt"
-
+            android:layout_width="match_parent"
+            android:layout_height="25dp"
+            android:layout_below="@+id/ff"
+            android:padding="0dp"
+            android:layout_marginRight="10dp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="5dp"
+            android:background="@color/colorAccent"
+            android:textColor="@color/white"
+            android:textSize="12sp"
+            android:text="Gonder"
             android:id="@+id/request_button"
             />
 
-    </LinearLayout>
+        <include layout="@layout/ara_cikis_layout"
+            android:layout_height="wrap_content"
+            android:layout_width="wrap_content"
+            android:layout_margin="10dp"
+            android:layout_below="@+id/request_button"
+            android:layout_centerHorizontal="true"
+            />
 
+    </RelativeLayout>
 
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="bottom|left"
-        android:layout_marginBottom="15dp"
-        android:layout_marginLeft="65dp"
-
-        android:text="Call Us!"
-        android:textSize="25sp"
-        />
-
-    <android.support.design.widget.FloatingActionButton
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_margin="5dp"
-        android:layout_gravity="bottom|left"
-
-
-
-        android:tint="#5ec6f2"
-
-        android:id="@+id/fab"
-        />
 
 
 

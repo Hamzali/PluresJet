@@ -1,8 +1,13 @@
 package com.example.hamzali.pluresjet;
 
+import android.Manifest;
+import android.app.Activity;
+import android.content.Context;
 import android.content.Intent;
+import android.content.pm.PackageManager;
 import android.net.Uri;
 import android.os.Bundle;
+import android.support.v4.app.ActivityCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.util.Log;
@@ -13,6 +18,7 @@ import android.widget.ImageView;
 
 public class MainActivity extends AppCompatActivity{
 
+    final Context context = this;
 // Main activity
     protected void onCreate(Bundle savedInstanceState){
         super.onCreate(savedInstanceState);
@@ -21,25 +27,61 @@ public class MainActivity extends AppCompatActivity{
         Toolbar toolbar = (Toolbar) findViewById(R.id.main_toolbar);
         setSupportActionBar(toolbar);
 
-        ImageView pluresIcon = (ImageView) findViewById(R.id.ucak_bileti);
+    }
+    public void callIntent(View view){
+        Intent callIntent = new Intent(Intent.ACTION_CALL);
+        callIntent.setData(Uri.parse("tel:05452068560"));
 
-
-        pluresIcon.setOnClickListener(new View.OnClickListener() {
-            public void onClick(View view) {
-                Uri uri = Uri.parse("http://www.pluresair.com"); // missing 'http://' will cause crashed
-                Intent intent = new Intent(Intent.ACTION_VIEW, uri);
-                startActivity(intent);
-            }
-        });
-
-
-
+        if (ActivityCompat.checkSelfPermission(context, Manifest.permission.CALL_PHONE) != PackageManager.PERMISSION_GRANTED) {
+            // TODO: Consider calling
+            //    ActivityCompat#requestPermissions
+            // here to request the missing permissions, and then overriding
+            //   public void onRequestPermissionsResult(int requestCode, String[] permissions,
+            //                                          int[] grantResults)
+            // to handle the case where the user grants the permission. See the documentation
+            // for ActivityCompat#requestPermissions for more details.
+            return;
+        }
+        startActivity(callIntent);
     }
 
-    public void requestForm(View view){
+    public void exit(View view){
+        finish();
+    }
+
+    public void requestForm(View view, int info){
+
         Intent intent = new Intent(this, FormActivity.class);
+        intent.putExtra("text", info);
         startActivity(intent);
     }
+
+    public void ucakKiralama(View view){
+        requestForm(view, 0);
+    }
+
+    public void ambulansKiralama(View view){
+        requestForm(view, 1);
+    }
+
+    public void havaKargo(View view){
+        requestForm(view, 2);
+    }
+
+    public void ucakBilet(View view){
+        requestForm(view, 3);
+    }
+
+    public void turizm(View view){
+        requestForm(view, 4);
+
+    }
+
+    public void iletisim(View view){
+        requestForm(view, 5);
+    }
+
+
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {

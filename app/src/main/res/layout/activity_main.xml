@@ -11,9 +11,6 @@
 
     tools:context="com.example.hamzali.pluresjet.MainActivity">
 
-
-
-
     <android.support.design.widget.AppBarLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -44,15 +41,15 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal|center_vertical"
             android:gravity="center_horizontal|center_vertical"
-            android:layout_marginTop="200dp"
+            android:layout_marginTop="150dp"
             >
 
             <ImageView
                 android:layout_width="100dp"
                 android:layout_height="100dp"
 
-
-
+                android:clickable="true"
+                android:onClick="ucakKiralama"
 
                 android:id="@+id/ozel_ucak_kiralama"
                 android:src="@drawable/ozel_ucak_kiralama"
@@ -64,6 +61,10 @@
 
                 android:layout_toEndOf="@+id/ozel_ucak_kiralama"
 
+                android:clickable="true"
+                android:onClick="ambulansKiralama"
+
+
                 android:id="@+id/ambulans_ucak"
                 android:src="@drawable/ambulans_ucak_kiralama"
                 />
@@ -73,6 +74,9 @@
                 android:layout_height="100dp"
 
                 android:layout_toEndOf="@+id/ambulans_ucak"
+
+                android:clickable="true"
+                android:onClick="havaKargo"
 
                 android:src="@drawable/hava_kargo"
                 android:id="@+id/hava_kargo"
@@ -85,6 +89,10 @@
 
                 android:layout_below="@+id/ambulans_ucak"
 
+
+                android:clickable="true"
+                android:onClick="ucakBilet"
+
                 android:src="@drawable/ucak_bileti_bt"
                 android:id="@+id/ucak_bileti"
                 />
@@ -96,6 +104,10 @@
 
                 android:layout_toEndOf="@+id/ucak_bileti"
                 android:layout_below="@+id/ambulans_ucak"
+
+
+                android:clickable="true"
+                android:onClick="turizm"
 
                 android:src="@drawable/turizm_bt"
                 android:id="@+id/turizm"

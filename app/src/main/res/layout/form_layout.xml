@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    >
+
+    <EditText
+
+        style="@style/InputStyle"
+        android:background="@drawable/input_style"
+
+        android:inputType="textPersonName"
+        android:hint="Adınız, Soyadınız."
+
+        android:id="@+id/name"
+        />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_below="@+id/name"
+        android:id="@+id/contact_info"
+        >
+
+        <EditText
+            style="@style/InputStyle"
+            android:background="@drawable/input_style"
+
+            android:layout_width="180dp"
+
+
+            android:inputType="textEmailAddress"
+            android:hint="E-posta adresiniz."
+
+            android:id="@+id/email"
+            />
+
+        <EditText
+            style="@style/InputStyle"
+            android:background="@drawable/input_style"
+
+            android:layout_width="180dp"
+
+            android:layout_below="@+id/name"
+            android:maxLength="20"
+            android:inputType="phone"
+            android:hint="Telefon"
+
+            android:id="@+id/phone"
+            />
+    </LinearLayout>
+
+
+    <EditText
+        style="@style/InputStyle"
+        android:background="@drawable/input_style"
+
+        android:layout_below="@+id/contact_info"
+
+        android:hint="Mesajiniz"
+
+        android:inputType="textCapSentences|textMultiLine"
+        android:maxLength="1800"
+        android:maxLines="6"
+
+        android:gravity="left"
+        android:layout_height="70dp"
+        android:padding="2dp"
+
+
+        android:id="@+id/flight_info"
+        />
+</RelativeLayout>
