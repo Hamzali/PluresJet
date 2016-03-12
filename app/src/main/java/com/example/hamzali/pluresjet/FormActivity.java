@@ -8,6 +8,8 @@ import android.content.pm.PackageManager;
 import android.content.res.Resources;
 import android.location.Address;
 import android.location.Geocoder;
+import android.net.ConnectivityManager;
+import android.net.NetworkInfo;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.v4.app.ActivityCompat;
@@ -67,9 +69,12 @@ public class FormActivity extends AppCompatActivity implements  OnMapReadyCallba
             setContentView(R.layout.iletisim_layout);
 
             // Obtain the SupportMapFragment and get notified when the map is ready to be used.
-            SupportMapFragment mapFragment = (SupportMapFragment) getSupportFragmentManager()
-                    .findFragmentById(R.id.map_fragment);
-            mapFragment.getMapAsync(this);
+
+            if(isOnline()){
+                SupportMapFragment mapFragment = (SupportMapFragment) getSupportFragmentManager()
+                        .findFragmentById(R.id.map_fragment);
+                mapFragment.getMapAsync(this);
+            }
 
         }else{
             setContentView(R.layout.activity_form);
@@ -182,6 +187,13 @@ public class FormActivity extends AppCompatActivity implements  OnMapReadyCallba
         map.getUiSettings().setAllGesturesEnabled(true);
         map.addMarker(new MarkerOptions().position(latLng));
         map.animateCamera(CameraUpdateFactory.newLatLngZoom(latLng, 10f));
+    }
+
+    public boolean isOnline() {
+        ConnectivityManager cm =
+                (ConnectivityManager) getSystemService(Context.CONNECTIVITY_SERVICE);
+        NetworkInfo netInfo = cm.getActiveNetworkInfo();
+        return netInfo != null && netInfo.isConnectedOrConnecting();
     }
 
     private boolean isValidPhone(CharSequence target) {

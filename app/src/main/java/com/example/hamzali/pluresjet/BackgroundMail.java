@@ -137,8 +137,8 @@ public class BackgroundMail {
         protected void onPostExecute(String result) {
             if (processVisibility != false) {
                 pd.dismiss();
-                Toast.makeText(mContext, sendingMessageSuccess,
-                        Toast.LENGTH_SHORT).show();
+               // Toast.makeText(mContext, sendingMessageSuccess,
+                        //Toast.LENGTH_SHORT).show();
             }
             super.onPostExecute(result);
         }
