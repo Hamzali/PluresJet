@@ -4,16 +4,22 @@
     <string name="action_test">Test</string>
     <string name="title_back">Back</string>
 
-    
-    <string name="country_prompt">Choose your country code</string>
-
     <string-array name="infos">
-
         <item>Yüksek özen, kalite ve güvenlik gerektiren bir hizmet olan özel uçak kiralama servisi, Plures Air güvencesiyle özel bir seyahat deneyimini ve müşteri memnuniyetini garanti ediyor. </item>
         <item>Plures, insan sağlığını temel alan ve bu konuda profesyonelleşmiş olan kadrosu ile ambulans uçak kiralama hizmeti sunan bir şirkettir. Türkiye\'nin bu alandaki en deneyimli firmasıdır.</item>
         <item>Plures Air, hem bireysel müşterilerine, hem de kurumsal şirketlere, IATA acentesi olarak yurtdışı uçak kargo hizmeti sunan bir firmadır.</item>
         <item>Plures ile dilediğiniz havayolunun uçak biletini satın alabilirsiniz. Tek yapmanız gereken Plures ile iletişime geçerek, uçak biletinizin tarih ve saatini bildirmektir.</item>
         <item>Uçak biletinden konaklamaya, otel rezervasyonundan transferlere, vize işlemlerinden havaalanlarında karşılama ve uğurlamaya kadar her türlü turizm hizmeti Plures\'te!</item>
-
+        <item>EGS Business Park Blokları\nB3 Blok No:9\nYeşilköy-İstanbul/TÜRKİYE\n\nTel:+90 0212 465 33 32\nFax:+90 0212 465 83 36\n\nsales@plures.com.tr</item>
     </string-array>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="talep_alindi">TALEBİNİZİ ALDIK. UZMANLARIMIZ EN KISA SÜREDE SİZİNLE İLETİŞİME GEÇECEKTİR.</string>
+    <string name="talep_alinamadi">TALEBİNİZ ALINAMADI. LÜTFEN İNERNET BAĞLANTINIZI KONTROL EDİN.</string>
+    <string name="title_activity_maps">Map</string>
+    <string name="menu_about">Hakkında</string>
+    <string name="menu_langtr">Türkçe</string>
+    <string name="menu_langeng">English</string>
+    <string name="send_btn_text">Gönder</string>
 </resources>

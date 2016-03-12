@@ -70,28 +70,31 @@ public class BackgroundMail {
 
     }
 
-    public void send(Context context) {
+    public int send(Context context) {
         boolean valid = true;
         if (username == null && username.isEmpty()) {
-            Log.e(TAG, "You didn't set a Gmail username!");
+            //Log.e(TAG, "You didn't set a Gmail username!");
             valid = false;
         }
         if (password == null && password.isEmpty()) {
-            Log.e(TAG, "You didn't set a Gmail password!");
+            //Log.e(TAG, "You didn't set a Gmail password!");
             valid = false;
         }
         if (mailto == null && mailto.isEmpty()) {
-            Log.e(TAG, "You didn't set an email recipient!");
+           // Log.e(TAG, "You didn't set an email recipient!");
             valid = false;
         }
         if (Utils.isNetworkAvailable(mContext) == false) {
-            Log.e(TAG, "User doesn't have a working internet connection!");
-            Toast.makeText(context, "No Internet Connection!", Toast.LENGTH_SHORT).show();
+           // Log.e(TAG, "User doesn't have a working internet connection!");
+           // Toast.makeText(context, "No Internet Connection!", Toast.LENGTH_SHORT).show();
             valid = false;
+            return 1;// No net.
         }
         if (valid) {
             new startSendingEmail().execute();
+            return 0;
         }
+        return 2;
     }
 
     public class startSendingEmail extends AsyncTask<String, Void, String> {

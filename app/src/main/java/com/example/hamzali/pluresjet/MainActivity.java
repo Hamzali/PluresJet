@@ -47,6 +47,7 @@ public class MainActivity extends AppCompatActivity{
 
     public void exit(View view){
         finish();
+        System.exit(0);
     }
 
     public void requestForm(View view, int info){
@@ -73,15 +74,13 @@ public class MainActivity extends AppCompatActivity{
     }
 
     public void turizm(View view){
-        requestForm(view, 4);
+       requestForm(view, 4);
 
     }
 
     public void iletisim(View view){
         requestForm(view, 5);
     }
-
-
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
@@ -98,17 +97,16 @@ public class MainActivity extends AppCompatActivity{
         int id = item.getItemId();
         switch (id){
             case R.id.action_about:
-                // Create new reminder.
-                Log.d(getLocalClassName(), "About");
 
                 return true;
 
-            case R.id.action_exit:
-                //Exit
-                Intent intent = new Intent(this, FormActivity.class);
-                startActivity(intent);
+            case R.id.lang_tr:
+                // Change language to turkish.
                 return true;
 
+            case R.id.lang_eng:
+                // Change language to english.
+                return true;
             default:
                 return false;
         }

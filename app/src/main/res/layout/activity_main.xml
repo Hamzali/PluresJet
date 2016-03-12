@@ -26,10 +26,6 @@
 
     </android.support.design.widget.AppBarLayout>
 
-
-    <!--
-     <include layout="@layout/content_main" />
-    -->
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -82,7 +78,6 @@
                 android:id="@+id/hava_kargo"
                 />
 
-
             <ImageView
                 android:layout_width="100dp"
                 android:layout_height="100dp"
@@ -125,11 +120,9 @@
                 android:id="@+id/iletisim"
 
 
+                android:clickable="true"
+                android:onClick="iletisim"
                 />
-
-
-
-
         </RelativeLayout>
 
     <include layout="@layout/ara_cikis_layout"/>
