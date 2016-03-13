@@ -12,7 +12,7 @@
         android:layout_margin="10dp"
         android:layout_width="300dp"
         android:layout_height="300dp"
-        android:src="@drawable/tesekurler_img"
+        android:background="@drawable/tesekurler_img"
         />
 
     <TextView

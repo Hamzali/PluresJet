@@ -41,20 +41,35 @@
             >
 
             <ImageView
-                android:layout_width="100dp"
+                android:layout_width="110dp"
                 android:layout_height="100dp"
+
+                android:layout_margin="2dp"
 
                 android:clickable="true"
                 android:onClick="ucakKiralama"
 
                 android:id="@+id/ozel_ucak_kiralama"
-                android:src="@drawable/ozel_ucak_kiralama"
+                android:background="@drawable/ozel_ucak_kiralama"
+                />
+
+            <TextView
+                android:layout_width="110dp"
+                android:layout_height="wrap_content"
+                android:layout_margin="2dp"
+                android:text="ÖZEL UÇAK KIRALAMA"
+                android:background="#434649"
+                android:textColor="@color/white"
+                android:textSize="15sp"
+                android:layout_below="@id/ozel_ucak_kiralama"
+                android:textAlignment="center"
+                android:id="@+id/ozel_ucak_kiralama_txt"
                 />
 
             <ImageView
-                android:layout_width="100dp"
+                android:layout_width="110dp"
                 android:layout_height="100dp"
-
+                android:layout_margin="2dp"
                 android:layout_toEndOf="@+id/ozel_ucak_kiralama"
 
                 android:clickable="true"
@@ -62,66 +77,139 @@
 
 
                 android:id="@+id/ambulans_ucak"
-                android:src="@drawable/ambulans_ucak_kiralama"
+                android:background="@drawable/ambulans_ucak_kiralama"
                 />
 
-            <ImageView
-                android:layout_width="100dp"
-                android:layout_height="100dp"
+            <TextView
+                android:layout_width="110dp"
+                android:layout_height="wrap_content"
+                android:layout_margin="2dp"
+                android:text="AMBULANS UÇAK"
+                android:background="#434649"
+                android:textColor="@color/white"
+                android:textSize="15sp"
+                android:layout_below="@id/ambulans_ucak"
+                android:layout_toEndOf="@+id/ozel_ucak_kiralama_txt"
+                android:textAlignment="center"
+                android:id="@+id/ambulans_ucak_txt"
+                />
 
+
+            <ImageView
+                android:layout_width="110dp"
+                android:layout_height="100dp"
+                android:layout_margin="2dp"
                 android:layout_toEndOf="@+id/ambulans_ucak"
 
                 android:clickable="true"
                 android:onClick="havaKargo"
 
-                android:src="@drawable/hava_kargo"
+                android:background="@drawable/hava_kargo"
                 android:id="@+id/hava_kargo"
                 />
 
-            <ImageView
-                android:layout_width="100dp"
-                android:layout_height="100dp"
+            <TextView
+                android:layout_width="110dp"
+                android:layout_height="wrap_content"
+                android:layout_margin="2dp"
+                android:text="HAVA KARGO\n"
+                android:background="#434649"
+                android:textColor="@color/white"
+                android:textSize="15sp"
+                android:layout_below="@id/ambulans_ucak"
+                android:layout_toEndOf="@+id/ambulans_ucak_txt"
+                android:textAlignment="center"
+                android:id="@+id/hava_kargo_txt"
+                />
 
-                android:layout_below="@+id/ambulans_ucak"
+            <ImageView
+                android:layout_width="110dp"
+                android:layout_height="100dp"
+                android:layout_margin="2dp"
+                android:layout_below="@+id/ozel_ucak_kiralama_txt"
 
 
                 android:clickable="true"
                 android:onClick="ucakBilet"
 
-                android:src="@drawable/ucak_bileti_bt"
+
+                android:background="@drawable/ucak_bileti_bt"
                 android:id="@+id/ucak_bileti"
+                />
+
+            <TextView
+                android:layout_width="110dp"
+                android:layout_height="wrap_content"
+                android:layout_margin="2dp"
+                android:text="UÇAK BİLETİ\n"
+                android:background="#434649"
+                android:textColor="@color/white"
+                android:textSize="15sp"
+                android:layout_below="@id/ucak_bileti"
+                android:textAlignment="center"
+                android:id="@+id/ucak_bileti_txt"
                 />
 
 
             <ImageView
-                android:layout_width="100dp"
+                android:layout_width="110dp"
                 android:layout_height="100dp"
-
+                android:layout_margin="2dp"
                 android:layout_toEndOf="@+id/ucak_bileti"
-                android:layout_below="@+id/ambulans_ucak"
+                android:layout_below="@+id/ambulans_ucak_txt"
 
 
                 android:clickable="true"
                 android:onClick="turizm"
 
-                android:src="@drawable/turizm_bt"
+                android:background="@drawable/turizm_bt"
                 android:id="@+id/turizm"
                 />
 
 
+            <TextView
+                android:layout_width="110dp"
+                android:layout_height="wrap_content"
+                android:layout_margin="2dp"
+                android:text="TURİZM\n"
+                android:background="#434649"
+                android:textColor="@color/white"
+                android:textSize="15sp"
+                android:layout_below="@id/ucak_bileti"
+                android:layout_toEndOf="@+id/ucak_bileti_txt"
+                android:textAlignment="center"
+                android:id="@+id/turizm_txt"
+                />
+
+
             <ImageView
-                android:layout_width="100dp"
+                android:layout_width="110dp"
                 android:layout_height="100dp"
-
+                android:layout_margin="2dp"
                 android:layout_toEndOf="@+id/turizm"
-                android:layout_below="@+id/hava_kargo"
+                android:layout_below="@+id/ozel_ucak_kiralama_txt"
 
-                android:src="@drawable/iletisim_bt"
+                android:background="@drawable/iletisim_bt"
                 android:id="@+id/iletisim"
 
 
                 android:clickable="true"
                 android:onClick="iletisim"
+                />
+
+
+            <TextView
+                android:layout_width="110dp"
+                android:layout_height="wrap_content"
+                android:layout_margin="2dp"
+                android:text="İLETİŞİM\n"
+                android:background="@color/colorAccent"
+                android:textColor="@color/white"
+                android:textSize="15sp"
+                android:layout_below="@id/ucak_bileti"
+                android:layout_toEndOf="@+id/turizm_txt"
+                android:textAlignment="center"
+                android:id="@+id/iletisim_txt"
                 />
         </RelativeLayout>
 

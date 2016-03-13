@@ -63,16 +63,41 @@
                 tools:layout="@layout/map_layout" />
         </LinearLayout>
 
-        <ImageView
-            android:layout_width="wrap_content"
-            android:layout_height="40dp"
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/icerik"
 
+            android:orientation="horizontal"
             android:layout_marginLeft="10dp"
             android:layout_marginRight="10dp"
+            android:layout_margin="10dp"
+            android:id="@+id/banner_layout"
+            >
 
-            android:src="@drawable/iletisim_banner"
-            android:layout_below="@+id/icerik"
-            android:id="@+id/banner" />
+            <ImageView
+                android:layout_width="60dp"
+                android:layout_height="match_parent"
+                android:background="@drawable/ozel_ucak_banner"
+                android:layout_marginRight="5dp"
+
+                android:src="@drawable/ozel_ucak_banner"
+                android:id="@+id/banner"
+                />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:text="TEST"
+                android:background="@color/colorAccent"
+                android:textColor="@color/white"
+                android:textSize="18sp"
+                android:padding="10dp"
+                android:id="@+id/banner_text"
+                />
+
+
+        </LinearLayout>
 
         <include layout="@layout/form_layout"
             android:layout_height="wrap_content"
@@ -81,7 +106,7 @@
             android:layout_marginLeft="10dp"
             android:layout_marginRight="10dp"
 
-            android:layout_below="@+id/banner"
+            android:layout_below="@+id/banner_layout"
             android:id="@+id/ff" />
 
         <Button

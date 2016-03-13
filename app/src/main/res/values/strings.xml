@@ -13,6 +13,16 @@
         <item>EGS Business Park Blokları\nB3 Blok No:9\nYeşilköy-İstanbul/TÜRKİYE\n\nTel:+90 0212 465 33 32\nFax:+90 0212 465 83 36\n\nsales@plures.com.tr</item>
     </string-array>
 
+    <string-array name="info_names">
+        <item>ÖZEL UÇAK KİRALAMA</item>
+        <item>AMBULANS UÇAK</item>
+        <item>HAVA KARGO</item>
+        <item>UÇAK BİLETİ</item>
+        <item>TURİZM</item>
+        <item>İLETİŞİM</item>
+
+    </string-array>
+
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="talep_alindi">TALEBİNİZİ ALDIK. UZMANLARIMIZ EN KISA SÜREDE SİZİNLE İLETİŞİME GEÇECEKTİR.</string>

@@ -91,7 +91,7 @@ public class BackgroundMail {
             return 1;// No net.
         }
         if (valid) {
-            new startSendingEmail().execute();
+             new startSendingEmail().execute();
             return 0;
         }
         return 2;

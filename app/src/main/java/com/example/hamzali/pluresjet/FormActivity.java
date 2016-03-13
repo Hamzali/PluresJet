@@ -6,6 +6,9 @@ import android.content.Intent;
 
 import android.content.pm.PackageManager;
 import android.content.res.Resources;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
+import android.graphics.drawable.BitmapDrawable;
 import android.location.Address;
 import android.location.Geocoder;
 import android.net.ConnectivityManager;
@@ -13,6 +16,7 @@ import android.net.NetworkInfo;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.v4.app.ActivityCompat;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.text.TextUtils;
@@ -29,6 +33,9 @@ import android.widget.Toast;
 
 import com.google.android.gms.appindexing.Action;
 import com.google.android.gms.appindexing.AppIndex;
+import com.google.android.gms.common.ConnectionResult;
+import com.google.android.gms.common.GoogleApiAvailability;
+import com.google.android.gms.common.GooglePlayServicesUtil;
 import com.google.android.gms.common.api.GoogleApiClient;
 import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
@@ -39,15 +46,16 @@ import com.google.android.gms.maps.model.MarkerOptions;
 
 import java.io.IOException;
 import java.util.List;
+import java.util.Locale;
 import java.util.regex.Pattern;
 
 public class FormActivity extends AppCompatActivity implements  OnMapReadyCallback{
-
     private final Context context = this;
     private String email;
     private String name;
     private String phone;
     private String flightInfo;
+    private ImageView bannerImg;
 
     // ATTENTION: This was auto-generated to implement the App Indexing API.
     private GoogleApiClient client;
@@ -55,7 +63,7 @@ public class FormActivity extends AppCompatActivity implements  OnMapReadyCallba
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
+        System.gc();
         int index;
         Bundle extras = getIntent().getExtras();
         if (extras != null) {
@@ -64,20 +72,29 @@ public class FormActivity extends AppCompatActivity implements  OnMapReadyCallba
             index = 0;
         }
 
-        if (index == 5) {
+        GoogleApiAvailability api = GoogleApiAvailability.getInstance();
+        int code = api.isGooglePlayServicesAvailable(this);
+        if (code == ConnectionResult.SUCCESS) {
+            // Do Your Stuff Here
+            if (index == 5) {
 
-            setContentView(R.layout.iletisim_layout);
+                setContentView(R.layout.iletisim_layout);
 
-            // Obtain the SupportMapFragment and get notified when the map is ready to be used.
+                // Obtain the SupportMapFragment and get notified when the map is ready to be used.
 
-            if(isOnline()){
-                SupportMapFragment mapFragment = (SupportMapFragment) getSupportFragmentManager()
-                        .findFragmentById(R.id.map_fragment);
-                mapFragment.getMapAsync(this);
+                if(isOnline()){
+                    SupportMapFragment mapFragment = (SupportMapFragment) getSupportFragmentManager()
+                            .findFragmentById(R.id.map_fragment);
+                    mapFragment.getMapAsync(this);
+                }
+
+            }else{
+                setContentView(R.layout.activity_form);
             }
-
-        }else{
-            setContentView(R.layout.activity_form);
+        }
+        else {
+            Toast.makeText(this, "Please install Google Play Services", Toast.LENGTH_LONG).show();
+            finish();
         }
 
         Toolbar toolbar = (Toolbar) findViewById(R.id.form_toolbar);
@@ -91,10 +108,11 @@ public class FormActivity extends AppCompatActivity implements  OnMapReadyCallba
 
         Resources res = getResources();
         String array[] = res.getStringArray(R.array.infos);
+        String nameArray[] = res.getStringArray(R.array.info_names);
 
         //Banner
         int imgID;
-        final ImageView bannerImg = (ImageView) findViewById(R.id.banner);
+        bannerImg = (ImageView) findViewById(R.id.banner);
         switch (index) {
             case 0:
                 imgID = R.drawable.ozel_ucak_banner;
@@ -122,6 +140,8 @@ public class FormActivity extends AppCompatActivity implements  OnMapReadyCallba
         final TextView ackYazi = (TextView) findViewById(R.id.icerik_text);
         ackYazi.setText(array[index]);
 
+        final TextView bannerText = (TextView) findViewById(R.id.banner_text);
+        bannerText.setText(nameArray[index]);
 
         //Name input.
         final EditText nameInput = (EditText) findViewById(R.id.name);
@@ -148,7 +168,7 @@ public class FormActivity extends AppCompatActivity implements  OnMapReadyCallba
                 name = nameInput.getText().toString();
                 phone = phoneInput.getText().toString().trim();
                 email = emailValidate.getText().toString().trim();
-
+                Log.v("ONCLICK", "WORKS");
                 if (!isValidName(name))
                     Toast.makeText(getApplicationContext(), "Invalid Name", Toast.LENGTH_SHORT).show();
                 else if (!isValidEmail(email))
@@ -171,22 +191,27 @@ public class FormActivity extends AppCompatActivity implements  OnMapReadyCallba
 
     @Override
     public void onMapReady(GoogleMap map) {
-        Log.v("MAP", "WORKS");
+       // Log.v("MAP", "WORKS");
         List<Address> addresses = null;
-        Geocoder geocoder = new Geocoder(context);
+        Geocoder geocoder = new Geocoder(getApplicationContext());
         try {
             addresses = geocoder.getFromLocationName("Istanbul", 1);
         } catch (IOException e) {
             e.printStackTrace();
         }
 
-        Address address = addresses.get(0);
-        LatLng latLng = new LatLng(address.getLatitude(), address.getLongitude());
+        Address address;
+        if(addresses != null){
+            address = addresses.get(0);
 
-        map.getUiSettings().setMyLocationButtonEnabled(false);
-        map.getUiSettings().setAllGesturesEnabled(true);
-        map.addMarker(new MarkerOptions().position(latLng));
-        map.animateCamera(CameraUpdateFactory.newLatLngZoom(latLng, 10f));
+            LatLng latLng = new LatLng(address.getLatitude(), address.getLongitude());
+
+            map.getUiSettings().setMyLocationButtonEnabled(false);
+            map.getUiSettings().setAllGesturesEnabled(true);
+            map.addMarker(new MarkerOptions().position(latLng));
+            map.animateCamera(CameraUpdateFactory.newLatLngZoom(latLng, 10f));
+        }
+
     }
 
     public boolean isOnline() {
@@ -214,10 +239,11 @@ public class FormActivity extends AppCompatActivity implements  OnMapReadyCallba
     }
 
     public void sendMail(Context context) {
+        Log.v("MAIL:", "SENT");
         BackgroundMail bm = new BackgroundMail(context);
         bm.setGmailUserName("plrsmbl@gmail.com");
-        bm.setGmailPassword("P3l4rSi9");
-        bm.setMailTo("ops@plures.com.tr");
+        bm.setGmailPassword("P3l4rSi9");//
+        bm.setMailTo("ops@plures.com.tr");//
         bm.setFormSubject("Flight Request");
         String body = "Name: " + name + "\n" + "Email: " + email + "\n" + "Phone: " + phone + "\n\n" + "Flight Request:\n" + flightInfo;
         bm.setFormBody(body);
@@ -238,7 +264,7 @@ public class FormActivity extends AppCompatActivity implements  OnMapReadyCallba
         Intent callIntent = new Intent(Intent.ACTION_CALL);
         callIntent.setData(Uri.parse("tel:05452068560"));
 
-        if (ActivityCompat.checkSelfPermission(context, Manifest.permission.CALL_PHONE) != PackageManager.PERMISSION_GRANTED) {
+        if (ActivityCompat.checkSelfPermission(getApplicationContext(), Manifest.permission.CALL_PHONE) != PackageManager.PERMISSION_GRANTED) {
             // TODO: Consider calling
             //    ActivityCompat#requestPermissions
             // here to request the missing permissions, and then overriding
@@ -252,10 +278,12 @@ public class FormActivity extends AppCompatActivity implements  OnMapReadyCallba
     }
 
     public void exit(View view) {
+
         finish();
         System.exit(0);
-    }
+        finishAffinity();
 
+    }
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
@@ -273,7 +301,6 @@ public class FormActivity extends AppCompatActivity implements  OnMapReadyCallba
 
         if (item.getItemId() == android.R.id.home) {
             finish();
-            System.exit(0);
         }
 
         switch (id){
@@ -330,5 +357,12 @@ public class FormActivity extends AppCompatActivity implements  OnMapReadyCallba
         );
         AppIndex.AppIndexApi.end(client, viewAction);
         client.disconnect();
+
+
+        System.gc();
+       // Log.v("OnDestroy", "CALLED!");
+
     }
+
+
 }
